@@ -1,3 +1,4 @@
+import { MongoClient } from "mongodb";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -10,5 +11,7 @@ try{
 }
 
 const db = mongoClient.db("mywallet")
-const usersCollection = db.collection("users")
-const transactionsCollection = db.collection ("transactions")
+export default db;
+export const usersCollection = db.collection("users");
+export const transactionsCollection = db.collection("transactions");
+export const sessionsCollection = db.collection("sessions")
