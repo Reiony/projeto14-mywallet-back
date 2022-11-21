@@ -1,5 +1,4 @@
 import { usersCollection } from "../database/db.js";
-import {usersSchema} from "../models/userSchema.js";
 import bcrypt from "bcrypt";
 export async function signInBodyValidation (req, res, next) {
     const user = req.body;

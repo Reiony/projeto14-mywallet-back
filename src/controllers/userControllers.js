@@ -17,7 +17,7 @@ export async function signUpUser(req, res) {
 }
 
 export async function signInUser(req, res) {
-    const { email, password } = req.body;
+    const { email } = req.body;
     const token = uuidV4();
     try {
         const userExists = await usersCollection.findOne({ email });
@@ -25,7 +25,7 @@ export async function signInUser(req, res) {
             token,
             userId: userExists._id,
         });
-        res.status(201).send({ token });
+        res.status(201).send(userExists.name);
     } catch (err) {
         console.log(err)
         res.sendStatus(500);
