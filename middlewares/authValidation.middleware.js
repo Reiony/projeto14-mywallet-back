@@ -67,9 +67,10 @@ export async function authValidationToken(req, res, next) {
       return;
     }
     res.locals.user = userRegistered;
+    res.locals.session = currentSession;
+    next();
   } catch (err) {
     console.log(err);
     res.status(500).send({message:"Internal Server Error"});
   }
-  next();
 }
