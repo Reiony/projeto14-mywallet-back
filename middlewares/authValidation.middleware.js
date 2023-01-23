@@ -15,7 +15,7 @@ export async function ValidateUserSchema(req, res, next) {
 
   const userValidate = await usersCollection.findOne({ email: user.email });
   if (userValidate) {
-    res.status(400).send({ message: "Email já cadastrado!" });
+    res.status(400).send({ message: "User already exists" });
     return;
   }
   res.locals.user = user;
@@ -37,10 +37,10 @@ export async function signInBodyValidation(req, res, next) {
       return;
     }
     res.locals.user = checkUser;
-    next();
   } catch (err) {
     const errors = err.details.map((detail) => detail.message);
     res.status(400).send(errors);
     return;
   }
+  next();
 }

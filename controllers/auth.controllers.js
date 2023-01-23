@@ -23,7 +23,7 @@ export async function signIn(req, res) {
   
     try {
       await sessionsCollection.insertOne({ token, userId: user._id });
-      res.status(201).send("User Logged In successfully");
+      res.status(201).send({message:"User Logged In successfully", token});
       return;
     } catch (err) {
       const errors = err.details.map((detail) => detail.message);
