@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
-import { usersCollection } from "../database/database";
-import { userSchema } from "../models/user.model";
+import { usersCollection } from "../database/database.js";
+import { userSchema } from "../models/user.model.js";
 
 export async function ValidateUserSchema(req, res, next) {
   const user = req.body;
@@ -37,6 +37,7 @@ export async function signInBodyValidation(req, res, next) {
       return;
     }
     res.locals.user = checkUser;
+    next();
   } catch (err) {
     const errors = err.details.map((detail) => detail.message);
     res.status(400).send(errors);
