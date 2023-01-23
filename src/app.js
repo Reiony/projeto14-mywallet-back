@@ -7,6 +7,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
+app.use(authRoutes);
 
 const PORT = 5000 || process.env.PORT;
 
