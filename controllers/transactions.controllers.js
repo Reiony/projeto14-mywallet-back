@@ -1,4 +1,4 @@
-import { transactionsCollection } from "../database/database";
+import { transactionsCollection } from "../database/database.js";
 
 export async function registerTransaction(req, res) {
   const transaction = res.locals.transaction;
@@ -18,6 +18,7 @@ export async function getTransaction(req, res) {
     const findTransactions = await transactionsCollection
       .find({ user: user._id })
       .toArray();
+    console.log(findTransactions);
     res.status(200).send(findTransactions);
   } catch (err) {
     console.log(err);

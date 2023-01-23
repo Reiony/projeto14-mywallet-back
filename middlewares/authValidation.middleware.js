@@ -60,7 +60,7 @@ export async function authValidationToken(req, res, next) {
       return;
     }
     const userRegistered = await usersCollection.findOne({
-      _id: session?.userId,
+      _id: currentSession?.userId,
     });
     if (!userRegistered) {
       res.sendStatus(401);

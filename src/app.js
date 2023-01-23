@@ -3,11 +3,13 @@ import cors from "cors";
 import dotenv from "dotenv";
 import dayjs from "dayjs";
 import authRoutes from "../routes/auth.routes.js"
+import transactionRoutes from "../routes/transactions.routes.js"
 const app = express();
 
 app.use(express.json());
 app.use(cors());
 app.use(authRoutes);
+app.use(transactionRoutes);
 
 const PORT = 5000 || process.env.PORT;
 
