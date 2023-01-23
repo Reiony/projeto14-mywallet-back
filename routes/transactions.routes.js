@@ -3,8 +3,7 @@ import { getTransaction, registerTransaction } from "../controllers/transactions
 import { authValidationToken } from "../middlewares/authValidation.middleware.js";
 
 const router = Router();
-router.use(authValidationToken)
+router.use(authValidationToken);
 router.post("/transactions", registerTransaction);
 router.get("/transactions", getTransaction);
-
 export default router;

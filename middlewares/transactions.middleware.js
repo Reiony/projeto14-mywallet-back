@@ -4,7 +4,6 @@ import { transactionsSchema } from "../models/transactions.model.js";
 export async function transactionsSchemaValidation (req,res,next){
     const {type, value, description} = req.body;
     const user = res.locals.user;
-    console.log(res.locals.user)
     const transactionFormat = {
         value,
         description,

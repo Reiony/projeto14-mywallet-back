@@ -1,7 +1,5 @@
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv";
-import dayjs from "dayjs";
 import authRoutes from "../routes/auth.routes.js"
 import transactionRoutes from "../routes/transactions.routes.js"
 const app = express();

@@ -18,7 +18,6 @@ export async function getTransaction(req, res) {
     const findTransactions = await transactionsCollection
       .find({ user: user._id })
       .toArray();
-    console.log(findTransactions);
     res.status(200).send(findTransactions);
   } catch (err) {
     console.log(err);
