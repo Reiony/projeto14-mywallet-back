@@ -1,6 +1,6 @@
 import { transactionsCollection } from "../database/database.js";
 
-export async function registerTransaction(req, res) {
+export async function registerTransactions(req, res) {
   const transaction = res.locals.transaction;
   try {
     await transactionsCollection.insertOne(transaction);
@@ -12,7 +12,7 @@ export async function registerTransaction(req, res) {
   }
 }
 
-export async function getTransaction(req, res) {
+export async function getTransactions(req, res) {
   const user = res.locals.user;
   try {
     const findTransactions = await transactionsCollection

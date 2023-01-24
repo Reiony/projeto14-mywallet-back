@@ -26,7 +26,7 @@ export async function signInBodyValidation(req, res, next) {
   const { email, password } = req.body;
 
   try {
-    const checkUser = await usersCollection.findOne({ email: email });
+    const checkUser = await usersCollection.findOne({ email });
     if (!checkUser) {
       res.sendStatus(401);
       return;
@@ -51,19 +51,20 @@ export async function authValidationToken(req, res, next) {
 
   if (!token) {
     res.status(401).send("UNAUTHORIZED");
+    return;
   }
 
   try {
     const currentSession = await sessionsCollection.findOne({ token });
     if (!currentSession) {
-      res.sendStatus(401);
+      res.status(401).send("UNAUTHORIZED");
       return;
     }
     const userRegistered = await usersCollection.findOne({
       _id: currentSession?.userId,
     });
     if (!userRegistered) {
-      res.sendStatus(401);
+      res.status(401).send("UNAUTHORIZED");
       return;
     }
     res.locals.user = userRegistered;
