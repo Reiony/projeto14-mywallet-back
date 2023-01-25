@@ -15,10 +15,10 @@ export async function registerTransactions(req, res) {
 export async function getTransactions(req, res) {
   const user = res.locals.user;
   try {
-    const findTransactions = await transactionsCollection
+    const transactions = await transactionsCollection
       .find({ user: user._id })
-      .toArray();
-    res.status(200).send(findTransactions);
+      .toArray();     
+    res.status(200).send({transactions, user});
   } catch (err) {
     console.log(err);
     res.sendStatus(500);
