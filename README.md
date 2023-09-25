@@ -23,7 +23,7 @@ Em breve:
   
 ## Como inciar a API
 
-- ATENÇÂO. Este projeto é o Back-End de um projeto completo. Para baixar e ver as instruções para o Front-End deste projeto [clique aqui](https://github.com/Matheus-Rodrigues-EC/MyWallet-React) para acessar o repositório.
+- Este projeto é o Back-End de um projeto completo. [Clique Aqui]([https://github.com/Matheus-Rodrigues-EC/MyWallet-React](https://github.com/Reiony/projeto14-mywallet-front)) para acessar o repositório front-end e visualizar as instruções para executar este projeto.
 
 1. Clone o repositório
 2. Instale as dependências
